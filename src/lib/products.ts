@@ -1,0 +1,311 @@
+import { Product } from "@/lib/types";
+
+export const PRODUCTS: Product[] = [
+  {
+    id: "gst-001",
+    slug: "regent-structured-overcoat",
+    name: "Regent Structured Overcoat",
+    tagline: "Architectural tailoring for cold city nights.",
+    description:
+      "A sharply cut wool overcoat with a sculpted shoulder line, satin interior piping, and weather-resistant finish. Designed for elevated layering and long silhouettes.",
+    category: "Outerwear",
+    collection: "Runway",
+    priceCents: 28900,
+    compareAtCents: 34900,
+    rating: 4.9,
+    reviewCount: 142,
+    isNew: true,
+    isFeatured: true,
+    stock: 32,
+    colors: ["Midnight", "Sandstone", "Forest"],
+    sizes: ["S", "M", "L", "XL"],
+    materials: ["Merino wool", "Silk blend lining", "Brushed cotton"],
+    gallery: [
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1609505848912-b7c3b8b4beda?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=80"
+    ]
+  },
+  {
+    id: "gst-002",
+    slug: "monaco-knit-polo",
+    name: "Monaco Knit Polo",
+    tagline: "Soft precision with a modern retro line.",
+    description:
+      "A breathable ribbed knit polo with tailored drape and reinforced collar architecture. Built to move from daytime leisure to formal evening styling.",
+    category: "Tops",
+    collection: "Resort",
+    priceCents: 11900,
+    rating: 4.8,
+    reviewCount: 201,
+    isNew: false,
+    isFeatured: true,
+    stock: 58,
+    colors: ["Ivory", "Black", "Olive"],
+    sizes: ["S", "M", "L", "XL"],
+    materials: ["Organic cotton", "Elastane"],
+    gallery: [
+      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?auto=format&fit=crop&w=1400&q=80"
+    ]
+  },
+  {
+    id: "gst-003",
+    slug: "district-tapered-trouser",
+    name: "District Tapered Trouser",
+    tagline: "Refined fit engineered for momentum.",
+    description:
+      "A high-rise tapered trouser with hidden stretch waistband and structured crease memory. Designed to hold shape through all-day movement.",
+    category: "Bottoms",
+    collection: "Essentials",
+    priceCents: 13900,
+    compareAtCents: 16900,
+    rating: 4.7,
+    reviewCount: 119,
+    isNew: false,
+    isFeatured: true,
+    stock: 67,
+    colors: ["Slate", "Taupe", "Onyx"],
+    sizes: ["28", "30", "32", "34", "36"],
+    materials: ["Italian twill", "Elastane"],
+    gallery: [
+      "https://images.unsplash.com/photo-1592878940526-0214b0f374f6?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?auto=format&fit=crop&w=1400&q=80"
+    ]
+  },
+  {
+    id: "gst-004",
+    slug: "atlas-leather-weekender",
+    name: "Atlas Leather Weekender",
+    tagline: "Travel form factor with couture detail.",
+    description:
+      "A full-grain leather weekender with modular interior compartments and brushed brass hardware. Built for two-day escapes with statement presence.",
+    category: "Accessories",
+    collection: "Runway",
+    priceCents: 37900,
+    rating: 4.9,
+    reviewCount: 88,
+    isNew: true,
+    isFeatured: false,
+    stock: 14,
+    colors: ["Chestnut", "Black"],
+    sizes: ["One Size"],
+    materials: ["Full-grain leather", "Recycled nylon lining", "Brass"],
+    gallery: [
+      "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1400&q=80"
+    ]
+  },
+  {
+    id: "gst-005",
+    slug: "vanguard-tech-runner",
+    name: "Vanguard Tech Runner",
+    tagline: "Street-luxury traction with featherweight build.",
+    description:
+      "Hybrid performance runner with matte suede overlays, responsive EVA core, and anti-slip outsole geometry for dynamic city pacing.",
+    category: "Footwear",
+    collection: "Street",
+    priceCents: 20900,
+    rating: 4.8,
+    reviewCount: 276,
+    isNew: false,
+    isFeatured: true,
+    stock: 73,
+    colors: ["Graphite", "Bone", "Sage"],
+    sizes: ["40", "41", "42", "43", "44", "45"],
+    materials: ["Microfiber suede", "EVA foam", "Rubber outsole"],
+    gallery: [
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=1400&q=80"
+    ]
+  },
+  {
+    id: "gst-006",
+    slug: "horizon-silk-shirt",
+    name: "Horizon Silk Shirt",
+    tagline: "A fluid drape with intentional sharpness.",
+    description:
+      "Lightweight silk-cotton blend shirt featuring concealed placket and soft peak collar. A polished statement piece for elevated evening looks.",
+    category: "Tops",
+    collection: "Runway",
+    priceCents: 15900,
+    rating: 4.7,
+    reviewCount: 97,
+    isNew: true,
+    isFeatured: false,
+    stock: 40,
+    colors: ["Pearl", "Midnight", "Rust"],
+    sizes: ["S", "M", "L", "XL"],
+    materials: ["Silk blend", "Cotton poplin"],
+    gallery: [
+      "https://images.unsplash.com/photo-1622445272461-c6580cab8755?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1516826957135-700dedea698c?auto=format&fit=crop&w=1400&q=80"
+    ]
+  },
+  {
+    id: "gst-007",
+    slug: "kinetic-bomber-jacket",
+    name: "Kinetic Bomber Jacket",
+    tagline: "Clean volume, technical comfort, street authority.",
+    description:
+      "A cropped performance bomber with quilted thermal lining and matte hardware. Designed with a compact silhouette that layers over knitwear and tees.",
+    category: "Outerwear",
+    collection: "Street",
+    priceCents: 23900,
+    rating: 4.8,
+    reviewCount: 164,
+    isNew: false,
+    isFeatured: true,
+    stock: 29,
+    colors: ["Charcoal", "Cedar", "Sand"],
+    sizes: ["S", "M", "L", "XL"],
+    materials: ["Recycled nylon", "Thermal fill", "Cotton rib"],
+    gallery: [
+      "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1600086827875-a63b01f1335c?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?auto=format&fit=crop&w=1400&q=80"
+    ]
+  },
+  {
+    id: "gst-008",
+    slug: "sienna-pleat-skirt",
+    name: "Sienna Pleat Skirt",
+    tagline: "Movement-forward tailoring in warm neutral tones.",
+    description:
+      "A knife-pleat midi skirt with hidden side zip and lightweight lined interior. A versatile silhouette that transitions from office to event.",
+    category: "Bottoms",
+    collection: "Resort",
+    priceCents: 12900,
+    rating: 4.6,
+    reviewCount: 74,
+    isNew: true,
+    isFeatured: false,
+    stock: 46,
+    colors: ["Camel", "Rosewood", "Night"],
+    sizes: ["XS", "S", "M", "L"],
+    materials: ["Textured viscose", "Recycled lining"],
+    gallery: [
+      "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=1400&q=80"
+    ]
+  },
+  {
+    id: "gst-009",
+    slug: "noir-signature-belt",
+    name: "Noir Signature Belt",
+    tagline: "Minimal profile with maximal craftsmanship.",
+    description:
+      "Hand-finished leather belt with brushed brass micro buckle and edge-painted finish. Built for clean silhouette pairing with tailored pieces.",
+    category: "Accessories",
+    collection: "Essentials",
+    priceCents: 8900,
+    rating: 4.9,
+    reviewCount: 53,
+    isNew: false,
+    isFeatured: false,
+    stock: 120,
+    colors: ["Black", "Espresso"],
+    sizes: ["S", "M", "L"],
+    materials: ["Vegetable-tanned leather", "Brass"],
+    gallery: [
+      "https://images.unsplash.com/photo-1624222247384-550fb60f20a8?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1400&q=80"
+    ]
+  },
+  {
+    id: "gst-010",
+    slug: "soho-oversized-blazer",
+    name: "Soho Oversized Blazer",
+    tagline: "Bold shoulder architecture with fluid line.",
+    description:
+      "Double-breasted oversized blazer with sculpted lapel roll and soft internal structuring. Designed to command attention while staying effortless.",
+    category: "Outerwear",
+    collection: "Runway",
+    priceCents: 25900,
+    compareAtCents: 29900,
+    rating: 4.9,
+    reviewCount: 133,
+    isNew: true,
+    isFeatured: true,
+    stock: 21,
+    colors: ["Bone", "Charcoal", "Merlot"],
+    sizes: ["S", "M", "L", "XL"],
+    materials: ["Wool blend", "Cupro lining"],
+    gallery: [
+      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=1400&q=80"
+    ]
+  },
+  {
+    id: "gst-011",
+    slug: "arc-lounge-tracksuit",
+    name: "Arc Lounge Tracksuit",
+    tagline: "Performance loungewear with couture finishing.",
+    description:
+      "Relaxed technical tracksuit with tonal embroidery, premium zipper trims, and moisture-managing knit. Designed for premium comfort and sharp street layering.",
+    category: "Tops",
+    collection: "Street",
+    priceCents: 17900,
+    rating: 4.7,
+    reviewCount: 162,
+    isNew: false,
+    isFeatured: false,
+    stock: 64,
+    colors: ["Sand", "Ink", "Olive"],
+    sizes: ["S", "M", "L", "XL"],
+    materials: ["Technical jersey", "Recycled polyester"],
+    gallery: [
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1400&q=80"
+    ]
+  },
+  {
+    id: "gst-012",
+    slug: "prism-sunglasses",
+    name: "Prism Sunglasses",
+    tagline: "Sharp geometry, all-season glare control.",
+    description:
+      "Acetate frame sunglasses with polarized Zeiss lenses and sculpted temple tips. Precision-built for statement styling and daily comfort.",
+    category: "Accessories",
+    collection: "Resort",
+    priceCents: 9900,
+    rating: 4.8,
+    reviewCount: 234,
+    isNew: true,
+    isFeatured: true,
+    stock: 95,
+    colors: ["Tortoise", "Black", "Crystal"],
+    sizes: ["One Size"],
+    materials: ["Premium acetate", "Polarized lens"],
+    gallery: [
+      "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1516707732152-61bb7767f0f8?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=1400&q=80"
+    ]
+  }
+];
+
+export const categories = ["All", "Outerwear", "Tops", "Bottoms", "Accessories", "Footwear"] as const;
+
+export const collections = ["All", "Runway", "Essentials", "Street", "Resort"] as const;
+
+export const featuredProducts = PRODUCTS.filter((product) => product.isFeatured);
+
+export const newArrivals = PRODUCTS.filter((product) => product.isNew);
+
+export function getProductBySlug(slug: string): Product | undefined {
+  return PRODUCTS.find((product) => product.slug === slug);
+}
+
+export function getRelatedProducts(current: Product, limit = 4): Product[] {
+  return PRODUCTS.filter((product) => product.category === current.category && product.id !== current.id).slice(0, limit);
+}
