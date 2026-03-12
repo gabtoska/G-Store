@@ -43,7 +43,7 @@ export function SiteFooter() {
             <div>
               <p className="text-xs uppercase tracking-[0.17em] text-cloud/60">Contact</p>
               <ul className="mt-4 space-y-3 text-sm text-cloud/80">
-                <li>support@gstore.fashion</li>
+                <li>support@gstorefashion.com</li>
                 <li>+1 (800) 555-4700</li>
                 <li>Suite 550, SoHo, New York</li>
               </ul>
