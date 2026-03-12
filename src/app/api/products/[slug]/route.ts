@@ -3,13 +3,9 @@ import { NextResponse } from "next/server";
 import { getProductBySlug } from "@/lib/products";
 
 interface RouteContext {
-  params:
-    | {
-        slug: string;
-      }
-    | Promise<{
-        slug: string;
-      }>;
+  params: Promise<{
+    slug: string;
+  }>;
 }
 
 export async function GET(_: Request, { params }: RouteContext) {

@@ -8,13 +8,9 @@ import { Pill } from "@/components/ui/pill";
 import { getProductBySlug, getRelatedProducts, PRODUCTS } from "@/lib/products";
 
 interface ProductPageProps {
-  params:
-    | {
-        slug: string;
-      }
-    | Promise<{
-        slug: string;
-      }>;
+  params: Promise<{
+    slug: string;
+  }>;
 }
 
 export function generateStaticParams() {

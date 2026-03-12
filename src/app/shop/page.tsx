@@ -4,13 +4,9 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { categories, collections, PRODUCTS } from "@/lib/products";
 
 interface ShopPageProps {
-  searchParams?:
-    | {
-        [key: string]: string | string[] | undefined;
-      }
-    | Promise<{
-        [key: string]: string | string[] | undefined;
-      }>;
+  searchParams?: Promise<{
+    [key: string]: string | string[] | undefined;
+  }>;
 }
 
 async function resolveSearchParams(searchParams: ShopPageProps["searchParams"]) {

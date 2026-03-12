@@ -28,7 +28,7 @@ export function TestimonialStrip() {
               key={testimonial.author}
               className="rounded-[28px] border border-black/10 bg-white/80 p-6 shadow-[0_12px_40px_rgba(0,0,0,0.06)]"
             >
-              <p className="font-display text-2xl leading-snug text-ink">"{testimonial.quote}"</p>
+              <p className="font-display text-2xl leading-snug text-ink">&ldquo;{testimonial.quote}&rdquo;</p>
               <p className="mt-6 text-xs uppercase tracking-[0.15em] text-ink/60">
                 {testimonial.author} / {testimonial.city}
               </p>
