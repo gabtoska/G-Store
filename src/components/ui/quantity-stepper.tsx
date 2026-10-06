@@ -17,24 +17,31 @@ export function QuantityStepper({
   onChange,
   min = 1,
   max = 12,
-  className
+  className,
 }: QuantityStepperProps) {
   return (
-    <div className={cn("inline-flex items-center rounded-full border border-black/10 bg-white/75 p-1", className)}>
+    <div
+      className={cn(
+        "inline-flex items-center rounded-full border border-black/10 bg-white/75 p-1",
+        className,
+      )}
+    >
       <button
         type="button"
-        className="inline-flex h-7 w-7 items-center justify-center rounded-full transition hover:bg-black/5"
+        className="inline-flex h-7 w-7 items-center justify-center rounded-full transition hover:bg-black/5 disabled:opacity-30"
         onClick={() => onChange(Math.max(min, value - 1))}
         aria-label="Decrease quantity"
+        disabled={value <= min}
       >
         <Minus className="h-3 w-3" />
       </button>
       <span className="w-8 text-center text-xs font-semibold">{value}</span>
       <button
         type="button"
-        className="inline-flex h-7 w-7 items-center justify-center rounded-full transition hover:bg-black/5"
+        className="inline-flex h-7 w-7 items-center justify-center rounded-full transition hover:bg-black/5 disabled:opacity-30"
         onClick={() => onChange(Math.min(max, value + 1))}
         aria-label="Increase quantity"
+        disabled={value >= max}
       >
         <Plus className="h-3 w-3" />
       </button>

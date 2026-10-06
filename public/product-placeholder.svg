@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" fill="#eee8de"/>
+  <circle cx="400" cy="430" r="140" fill="#e0d7c9"/>
+  <text x="400" y="470" text-anchor="middle" fill="#0f5a45" font-family="Georgia,serif" font-size="140">G</text>
+  <text x="400" y="650" text-anchor="middle" fill="#555047" font-family="Arial,sans-serif" font-size="24" letter-spacing="4">IMAGE UNAVAILABLE</text>
+</svg>

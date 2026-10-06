@@ -12,3 +12,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 *.tsbuildinfo
+.env.*
+!.env.example
+.local/
+audit.local.json
+playwright-report/
+test-results/

@@ -6,27 +6,52 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/unit/*.test.ts",
+    "test:integration": "tsx --test --test-concurrency=1 tests/integration/*.test.ts",
+    "test:e2e": "playwright test",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:deploy": "prisma migrate deploy",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:studio": "prisma studio",
+    "postinstall": "prisma generate",
+    "db:test:migrate": "tsx scripts/migrate-test-db.ts",
+    "db:local:start": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/windows-local-db.ps1 start",
+    "db:local:stop": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/windows-local-db.ps1 stop"
   },
   "dependencies": {
+    "@prisma/client": "6.19.3",
     "clsx": "^2.1.1",
     "lucide-react": "^0.468.0",
-    "next": "^15.5.12",
+    "next": "15.5.27",
+    "next-auth": "5.0.0-beta.32",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "tailwind-merge": "^2.5.5"
+    "server-only": "^0.0.1",
+    "tailwind-merge": "^2.5.5",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
+    "@playwright/test": "^1.63.0",
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "autoprefixer": "^10.4.20",
+    "dotenv": "^18.0.5",
     "eslint": "^9.17.0",
-    "eslint-config-next": "15.1.0",
-    "postcss": "^8.4.49",
+    "eslint-config-next": "15.5.27",
+    "postcss": "^8.5.29",
+    "prisma": "6.19.3",
     "tailwindcss": "^3.4.17",
+    "tsx": "^4.23.15",
     "typescript": "^5.7.2"
+  },
+  "overrides": {
+    "postcss": "$postcss",
+    "deepmerge-ts": "8.0.2",
+    "postcss-selector-parser": "7.1.6"
   }
 }

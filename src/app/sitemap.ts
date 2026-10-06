@@ -1,22 +1,19 @@
 import type { MetadataRoute } from "next";
-
-import { PRODUCTS } from "@/lib/products";
-
-const BASE_URL = "https://gstore.example.com";
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${BASE_URL}/`, changeFrequency: "weekly", priority: 1 },
-    { url: `${BASE_URL}/shop`, changeFrequency: "daily", priority: 0.9 },
-    { url: `${BASE_URL}/cart`, changeFrequency: "weekly", priority: 0.6 },
-    { url: `${BASE_URL}/checkout`, changeFrequency: "weekly", priority: 0.7 }
+import { db } from "@/lib/db";
+export const dynamic = "force-dynamic";
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const base = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+  const products = await db.product.findMany({
+    where: { isActive: true },
+    select: { slug: true, updatedAt: true },
+  });
+  return [
+    { url: base, priority: 1 },
+    { url: base + "/shop", priority: 0.9 },
+    ...products.map((p) => ({
+      url: base + "/shop/" + p.slug,
+      lastModified: p.updatedAt,
+      priority: 0.8,
+    })),
   ];
-
-  const productRoutes: MetadataRoute.Sitemap = PRODUCTS.map((product) => ({
-    url: `${BASE_URL}/shop/${product.slug}`,
-    changeFrequency: "weekly",
-    priority: 0.8
-  }));
-
-  return [...staticRoutes, ...productRoutes];
 }

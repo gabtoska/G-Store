@@ -14,7 +14,11 @@ body {
   background:
     radial-gradient(circle at 0% 10%, rgba(242, 93, 79, 0.14), transparent 36%),
     radial-gradient(circle at 100% 0%, rgba(15, 90, 69, 0.12), transparent 33%),
-    radial-gradient(circle at 60% 100%, rgba(185, 137, 78, 0.12), transparent 40%),
+    radial-gradient(
+      circle at 60% 100%,
+      rgba(185, 137, 78, 0.12),
+      transparent 40%
+    ),
     #f7f3ec;
 }
 
@@ -25,5 +29,33 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-[30px] border border-black/10 bg-white/85 p-6 sm:p-8;
+  }
+  .field {
+    @apply block w-full min-w-0 rounded-xl border border-black/20 bg-cloud/75 px-4 py-3 text-sm text-ink outline-none transition focus:border-accent focus:ring-1 focus:ring-accent disabled:opacity-60;
+  }
+  .field-label {
+    @apply block space-y-2 text-sm font-medium text-ink;
+  }
+  .action-link {
+    @apply inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-xs font-semibold uppercase tracking-wider text-cloud transition hover:bg-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }

@@ -5,7 +5,7 @@ import { ProductPurchasePanel } from "@/components/shop/product-purchase-panel";
 import { ProductCard } from "@/components/shop/product-card";
 import { Container } from "@/components/ui/container";
 import { Pill } from "@/components/ui/pill";
-import { getProductBySlug, getRelatedProducts, PRODUCTS } from "@/lib/products";
+import { getProductBySlug, getRelatedProducts } from "@/server/catalog";
 
 interface ProductPageProps {
   params: Promise<{
@@ -13,19 +13,17 @@ interface ProductPageProps {
   }>;
 }
 
-export function generateStaticParams() {
-  return PRODUCTS.map((product) => ({ slug: product.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export default async function ProductPage({ params }: ProductPageProps) {
   const resolvedParams = await params;
-  const product = getProductBySlug(resolvedParams.slug);
+  const product = await getProductBySlug(resolvedParams.slug);
 
   if (!product) {
     notFound();
   }
 
-  const related = getRelatedProducts(product, 3);
+  const related = await getRelatedProducts(product, 3);
 
   return (
     <div className="py-10 sm:py-14">
@@ -44,17 +42,19 @@ export default async function ProductPage({ params }: ProductPageProps) {
               ))}
             </div>
             <p className="text-sm leading-relaxed text-ink/70">
-              Every piece is finished in limited runs with strict quality controls to preserve shape, texture, and
-              wearability.
+              Every piece is finished in limited runs with strict quality
+              controls to preserve shape, texture, and wearability.
             </p>
           </div>
           <div className="space-y-4">
-            <h2 className="font-display text-3xl text-ink">Delivery & Returns</h2>
+            <h2 className="font-display text-3xl text-ink">
+              Delivery & Returns
+            </h2>
             <ul className="space-y-2 text-sm leading-relaxed text-ink/70">
-              <li>Express US shipping in 2 to 3 business days.</li>
-              <li>Complimentary returns in 30 days.</li>
-              <li>Personalized fit consultation for all first-time orders.</li>
-              <li>Secure checkout with encrypted payment flow.</li>
+              <li>US addresses supported in this portfolio demo.</li>
+              <li>Shipping estimate: $12, free on orders over $250.</li>
+              <li>Demo tax: 8% of the product subtotal.</li>
+              <li>Demo pay on delivery. No payment or physical shipment.</li>
             </ul>
           </div>
         </section>

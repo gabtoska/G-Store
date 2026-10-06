@@ -6,7 +6,7 @@ const footerLinks = [
   { href: "/shop", label: "Shop All" },
   { href: "/shop?collection=Runway", label: "Runway" },
   { href: "/shop?collection=Street", label: "Street" },
-  { href: "/checkout", label: "Checkout" }
+  { href: "/account", label: "Account & Orders" },
 ];
 
 export function SiteFooter() {
@@ -16,24 +16,31 @@ export function SiteFooter() {
       <Container className="relative">
         <div className="grid gap-12 py-16 md:grid-cols-2">
           <div className="space-y-4">
-            <p className="text-xs uppercase tracking-[0.17em] text-cloud/60">G Store</p>
+            <p className="text-xs uppercase tracking-[0.17em] text-cloud/60">
+              G Store
+            </p>
             <h2 className="font-display text-4xl leading-tight sm:text-5xl">
               Dress like a G.
               <br />
               Own every room.
             </h2>
             <p className="max-w-md text-sm leading-relaxed text-cloud/75">
-              G Store is a premium fashion commerce platform for bold silhouettes, elevated textures, and unapologetic
-              confidence.
+              G Store is a premium fashion commerce platform for bold
+              silhouettes, elevated textures, and unapologetic confidence.
             </p>
           </div>
           <div className="grid gap-8 sm:grid-cols-2">
             <div>
-              <p className="text-xs uppercase tracking-[0.17em] text-cloud/60">Navigate</p>
+              <p className="text-xs uppercase tracking-[0.17em] text-cloud/60">
+                Navigate
+              </p>
               <ul className="mt-4 space-y-3 text-sm">
                 {footerLinks.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="transition hover:text-brass">
+                    <Link
+                      href={link.href}
+                      className="transition hover:text-brass"
+                    >
                       {link.label}
                     </Link>
                   </li>
@@ -41,11 +48,13 @@ export function SiteFooter() {
               </ul>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.17em] text-cloud/60">Contact</p>
+              <p className="text-xs uppercase tracking-[0.17em] text-cloud/60">
+                Portfolio project
+              </p>
               <ul className="mt-4 space-y-3 text-sm text-cloud/80">
-                <li>support@gstorefashion.com</li>
-                <li>+1 (800) 555-4700</li>
-                <li>Suite 550, SoHo, New York</li>
+                <li>Demo storefront. No real purchases.</li>
+                <li>All prices shown in USD.</li>
+                <li>Built with Next.js and PostgreSQL.</li>
               </ul>
             </div>
           </div>

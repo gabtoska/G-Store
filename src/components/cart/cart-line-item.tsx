@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ProductImage } from "@/components/ui/product-image";
 import Link from "next/link";
 import { Trash2 } from "lucide-react";
 
@@ -10,15 +10,27 @@ import { CartLine } from "@/lib/types";
 
 interface CartLineItemProps {
   line: CartLine;
+  maxQuantity: number;
   onQuantityChange: (quantity: number) => void;
   onRemove: () => void;
 }
 
-export function CartLineItem({ line, onQuantityChange, onRemove }: CartLineItemProps) {
+export function CartLineItem({
+  line,
+  maxQuantity,
+  onQuantityChange,
+  onRemove,
+}: CartLineItemProps) {
   return (
     <article className="grid grid-cols-[96px_1fr] gap-4 rounded-3xl border border-black/10 bg-white/80 p-4 backdrop-blur">
       <div className="relative h-28 overflow-hidden rounded-2xl">
-        <Image src={line.image} alt={line.name} fill className="object-cover" sizes="96px" />
+        <ProductImage
+          src={line.image}
+          alt={line.name}
+          fill
+          className="object-cover"
+          sizes="96px"
+        />
       </div>
       <div className="flex flex-col gap-3">
         <div className="flex items-start justify-between gap-4">
@@ -43,8 +55,14 @@ export function CartLineItem({ line, onQuantityChange, onRemove }: CartLineItemP
           </button>
         </div>
         <div className="flex items-center justify-between">
-          <QuantityStepper value={line.quantity} onChange={onQuantityChange} />
-          <p className="text-sm font-semibold text-ink">{formatMoney(line.priceCents * line.quantity)}</p>
+          <QuantityStepper
+            max={maxQuantity}
+            value={line.quantity}
+            onChange={onQuantityChange}
+          />
+          <p className="text-sm font-semibold text-ink">
+            {formatMoney(line.priceCents * line.quantity)}
+          </p>
         </div>
       </div>
     </article>

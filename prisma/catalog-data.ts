@@ -1,6 +1,5 @@
-import { Product } from "@/lib/types";
-
-export const PRODUCTS: Product[] = [
+// Development seed data only; storefront code never imports this file.
+export const SEED_PRODUCTS = [
   {
     id: "gst-001",
     slug: "regent-structured-overcoat",
@@ -12,8 +11,6 @@ export const PRODUCTS: Product[] = [
     collection: "Runway",
     priceCents: 28900,
     compareAtCents: 34900,
-    rating: 4.9,
-    reviewCount: 142,
     isNew: true,
     isFeatured: true,
     stock: 32,
@@ -23,8 +20,8 @@ export const PRODUCTS: Product[] = [
     gallery: [
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1400&q=80",
       "https://images.unsplash.com/photo-1609505848912-b7c3b8b4beda?auto=format&fit=crop&w=1400&q=80",
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=80"
-    ]
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=80",
+    ],
   },
   {
     id: "gst-002",
@@ -36,8 +33,6 @@ export const PRODUCTS: Product[] = [
     category: "Tops",
     collection: "Resort",
     priceCents: 11900,
-    rating: 4.8,
-    reviewCount: 201,
     isNew: false,
     isFeatured: true,
     stock: 58,
@@ -47,8 +42,8 @@ export const PRODUCTS: Product[] = [
     gallery: [
       "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=1400&q=80",
       "https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=1400&q=80",
-      "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?auto=format&fit=crop&w=1400&q=80"
-    ]
+      "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?auto=format&fit=crop&w=1400&q=80",
+    ],
   },
   {
     id: "gst-003",
@@ -61,8 +56,6 @@ export const PRODUCTS: Product[] = [
     collection: "Essentials",
     priceCents: 13900,
     compareAtCents: 16900,
-    rating: 4.7,
-    reviewCount: 119,
     isNew: false,
     isFeatured: true,
     stock: 67,
@@ -72,8 +65,8 @@ export const PRODUCTS: Product[] = [
     gallery: [
       "https://images.unsplash.com/photo-1592878940526-0214b0f374f6?auto=format&fit=crop&w=1400&q=80",
       "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=1400&q=80",
-      "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?auto=format&fit=crop&w=1400&q=80"
-    ]
+      "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?auto=format&fit=crop&w=1400&q=80",
+    ],
   },
   {
     id: "gst-004",
@@ -85,8 +78,6 @@ export const PRODUCTS: Product[] = [
     category: "Accessories",
     collection: "Runway",
     priceCents: 37900,
-    rating: 4.9,
-    reviewCount: 88,
     isNew: true,
     isFeatured: false,
     stock: 14,
@@ -96,8 +87,8 @@ export const PRODUCTS: Product[] = [
     gallery: [
       "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=1400&q=80",
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1400&q=80",
-      "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1400&q=80"
-    ]
+      "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1400&q=80",
+    ],
   },
   {
     id: "gst-005",
@@ -109,8 +100,6 @@ export const PRODUCTS: Product[] = [
     category: "Footwear",
     collection: "Street",
     priceCents: 20900,
-    rating: 4.8,
-    reviewCount: 276,
     isNew: false,
     isFeatured: true,
     stock: 73,
@@ -120,8 +109,8 @@ export const PRODUCTS: Product[] = [
     gallery: [
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1400&q=80",
       "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1400&q=80",
-      "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=1400&q=80"
-    ]
+      "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=1400&q=80",
+    ],
   },
   {
     id: "gst-006",
@@ -133,8 +122,6 @@ export const PRODUCTS: Product[] = [
     category: "Tops",
     collection: "Runway",
     priceCents: 15900,
-    rating: 4.7,
-    reviewCount: 97,
     isNew: true,
     isFeatured: false,
     stock: 40,
@@ -144,8 +131,8 @@ export const PRODUCTS: Product[] = [
     gallery: [
       "https://images.unsplash.com/photo-1622445272461-c6580cab8755?auto=format&fit=crop&w=1400&q=80",
       "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=1400&q=80",
-      "https://images.unsplash.com/photo-1516826957135-700dedea698c?auto=format&fit=crop&w=1400&q=80"
-    ]
+      "https://images.unsplash.com/photo-1516826957135-700dedea698c?auto=format&fit=crop&w=1400&q=80",
+    ],
   },
   {
     id: "gst-007",
@@ -157,8 +144,6 @@ export const PRODUCTS: Product[] = [
     category: "Outerwear",
     collection: "Street",
     priceCents: 23900,
-    rating: 4.8,
-    reviewCount: 164,
     isNew: false,
     isFeatured: true,
     stock: 29,
@@ -168,8 +153,8 @@ export const PRODUCTS: Product[] = [
     gallery: [
       "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=1400&q=80",
       "https://images.unsplash.com/photo-1600086827875-a63b01f1335c?auto=format&fit=crop&w=1400&q=80",
-      "https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?auto=format&fit=crop&w=1400&q=80"
-    ]
+      "https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?auto=format&fit=crop&w=1400&q=80",
+    ],
   },
   {
     id: "gst-008",
@@ -181,8 +166,6 @@ export const PRODUCTS: Product[] = [
     category: "Bottoms",
     collection: "Resort",
     priceCents: 12900,
-    rating: 4.6,
-    reviewCount: 74,
     isNew: true,
     isFeatured: false,
     stock: 46,
@@ -192,8 +175,8 @@ export const PRODUCTS: Product[] = [
     gallery: [
       "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=1400&q=80",
       "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=80",
-      "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=1400&q=80"
-    ]
+      "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=1400&q=80",
+    ],
   },
   {
     id: "gst-009",
@@ -205,8 +188,6 @@ export const PRODUCTS: Product[] = [
     category: "Accessories",
     collection: "Essentials",
     priceCents: 8900,
-    rating: 4.9,
-    reviewCount: 53,
     isNew: false,
     isFeatured: false,
     stock: 120,
@@ -214,10 +195,9 @@ export const PRODUCTS: Product[] = [
     sizes: ["S", "M", "L"],
     materials: ["Vegetable-tanned leather", "Brass"],
     gallery: [
-      "https://images.unsplash.com/photo-1624222247384-550fb60f20a8?auto=format&fit=crop&w=1400&q=80",
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=80",
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1400&q=80"
-    ]
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1400&q=80",
+    ],
   },
   {
     id: "gst-010",
@@ -230,8 +210,6 @@ export const PRODUCTS: Product[] = [
     collection: "Runway",
     priceCents: 25900,
     compareAtCents: 29900,
-    rating: 4.9,
-    reviewCount: 133,
     isNew: true,
     isFeatured: true,
     stock: 21,
@@ -241,8 +219,8 @@ export const PRODUCTS: Product[] = [
     gallery: [
       "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=80",
       "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1400&q=80",
-      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=1400&q=80"
-    ]
+      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=1400&q=80",
+    ],
   },
   {
     id: "gst-011",
@@ -254,8 +232,6 @@ export const PRODUCTS: Product[] = [
     category: "Tops",
     collection: "Street",
     priceCents: 17900,
-    rating: 4.7,
-    reviewCount: 162,
     isNew: false,
     isFeatured: false,
     stock: 64,
@@ -265,8 +241,8 @@ export const PRODUCTS: Product[] = [
     gallery: [
       "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=80",
       "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1400&q=80",
-      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1400&q=80"
-    ]
+      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1400&q=80",
+    ],
   },
   {
     id: "gst-012",
@@ -278,8 +254,6 @@ export const PRODUCTS: Product[] = [
     category: "Accessories",
     collection: "Resort",
     priceCents: 9900,
-    rating: 4.8,
-    reviewCount: 234,
     isNew: true,
     isFeatured: true,
     stock: 95,
@@ -288,24 +262,7 @@ export const PRODUCTS: Product[] = [
     materials: ["Premium acetate", "Polarized lens"],
     gallery: [
       "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1400&q=80",
-      "https://images.unsplash.com/photo-1516707732152-61bb7767f0f8?auto=format&fit=crop&w=1400&q=80",
-      "https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=1400&q=80"
-    ]
-  }
+      "https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=1400&q=80",
+    ],
+  },
 ];
-
-export const categories = ["All", "Outerwear", "Tops", "Bottoms", "Accessories", "Footwear"] as const;
-
-export const collections = ["All", "Runway", "Essentials", "Street", "Resort"] as const;
-
-export const featuredProducts = PRODUCTS.filter((product) => product.isFeatured);
-
-export const newArrivals = PRODUCTS.filter((product) => product.isNew);
-
-export function getProductBySlug(slug: string): Product | undefined {
-  return PRODUCTS.find((product) => product.slug === slug);
-}
-
-export function getRelatedProducts(current: Product, limit = 4): Product[] {
-  return PRODUCTS.filter((product) => product.category === current.category && product.id !== current.id).slice(0, limit);
-}

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Menu, ShoppingBag, X } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import { CartDrawer } from "@/components/cart/cart-drawer";
 import { Button } from "@/components/ui/button";
@@ -15,7 +15,7 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/shop", label: "Shop" },
   { href: "/cart", label: "Cart" },
-  { href: "/checkout", label: "Checkout" }
+  { href: "/account", label: "Account" },
 ];
 
 export function SiteHeader() {
@@ -23,30 +23,38 @@ export function SiteHeader() {
   const { itemCount } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const closeCart = useCallback(() => setCartOpen(false), []);
 
   return (
     <>
       <div className="border-b border-black/10 bg-ink px-4 py-2 text-center text-[11px] uppercase tracking-[0.14em] text-cloud">
-        Free express shipping for US orders over $250
+        Portfolio demo · No real payments or shipments · Free demo shipping over
+        $250
       </div>
       <header className="sticky top-0 z-30 border-b border-black/10 bg-cloud/85 backdrop-blur-xl">
         <Container>
           <div className="flex h-20 items-center justify-between">
             <Link href="/" className="group inline-flex flex-col leading-none">
-              <span className="font-display text-2xl text-ink transition group-hover:text-accent">G Store</span>
-              <span className="text-[10px] uppercase tracking-[0.19em] text-ink/55">Dress Like A G</span>
+              <span className="font-display text-2xl text-ink transition group-hover:text-accent">
+                G Store
+              </span>
+              <span className="text-[10px] uppercase tracking-[0.19em] text-ink/55">
+                Dress Like A G
+              </span>
             </Link>
 
             <nav className="hidden items-center gap-8 lg:flex">
               {links.map((link) => {
-                const active = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+                const active =
+                  pathname === link.href ||
+                  (link.href !== "/" && pathname.startsWith(link.href));
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
                     className={cn(
                       "text-xs font-semibold uppercase tracking-[0.15em] transition",
-                      active ? "text-accent" : "text-ink/70 hover:text-ink"
+                      active ? "text-accent" : "text-ink/70 hover:text-ink",
                     )}
                   >
                     {link.label}
@@ -73,23 +81,33 @@ export function SiteHeader() {
                 size="sm"
                 className="lg:hidden"
                 aria-label="Toggle navigation menu"
+                aria-expanded={menuOpen}
                 onClick={() => setMenuOpen((previous) => !previous)}
               >
-                {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+                {menuOpen ? (
+                  <X className="h-4 w-4" />
+                ) : (
+                  <Menu className="h-4 w-4" />
+                )}
               </Button>
             </div>
           </div>
 
           <div
+            inert={!menuOpen}
             className={cn(
               "grid overflow-hidden border-t border-black/10 transition-all duration-300 lg:hidden",
-              menuOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+              menuOpen
+                ? "grid-rows-[1fr] opacity-100"
+                : "grid-rows-[0fr] opacity-0",
             )}
           >
             <div className="overflow-hidden">
               <nav className="space-y-1 py-4">
                 {links.map((link) => {
-                  const active = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+                  const active =
+                    pathname === link.href ||
+                    (link.href !== "/" && pathname.startsWith(link.href));
                   return (
                     <Link
                       key={link.href}
@@ -97,7 +115,9 @@ export function SiteHeader() {
                       onClick={() => setMenuOpen(false)}
                       className={cn(
                         "block rounded-xl px-4 py-3 text-xs font-semibold uppercase tracking-[0.15em]",
-                        active ? "bg-accent text-cloud" : "text-ink/75 hover:bg-black/5 hover:text-ink"
+                        active
+                          ? "bg-accent text-cloud"
+                          : "text-ink/75 hover:bg-black/5 hover:text-ink",
                       )}
                     >
                       {link.label}
@@ -109,7 +129,7 @@ export function SiteHeader() {
           </div>
         </Container>
       </header>
-      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
+      <CartDrawer open={cartOpen} onClose={closeCart} />
     </>
   );
 }

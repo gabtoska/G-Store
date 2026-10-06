@@ -1,6 +1,7 @@
+import { errorResponse } from "@/server/http";
 import { NextResponse } from "next/server";
 
-import { getProductBySlug } from "@/lib/products";
+import { getProductBySlug } from "@/server/catalog";
 
 interface RouteContext {
   params: Promise<{
@@ -9,19 +10,23 @@ interface RouteContext {
 }
 
 export async function GET(_: Request, { params }: RouteContext) {
-  const resolvedParams = await params;
-  const product = getProductBySlug(resolvedParams.slug);
+  try {
+    const resolvedParams = await params;
+    const product = await getProductBySlug(resolvedParams.slug);
 
-  if (!product) {
-    return NextResponse.json(
-      {
-        error: "Product not found"
-      },
-      {
-        status: 404
-      }
-    );
+    if (!product) {
+      return NextResponse.json(
+        {
+          error: "Product not found",
+        },
+        {
+          status: 404,
+        },
+      );
+    }
+
+    return NextResponse.json(product);
+  } catch (error) {
+    return errorResponse(error);
   }
-
-  return NextResponse.json(product);
 }

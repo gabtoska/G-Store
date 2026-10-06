@@ -10,35 +10,45 @@ import "./globals.css";
 const satoshi = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-satoshi",
-  display: "swap"
+  display: "swap",
 });
 
 const clash = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-clash",
   weight: ["500", "600", "700"],
-  display: "swap"
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "G Store | Dress like a G",
   description:
     "High-end fashion e-commerce experience with premium clothing, statement accessories, and runway-inspired essentials.",
-  metadataBase: new URL("https://gstore.example.com")
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000",
+  ),
 };
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
   children: ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${satoshi.variable} ${clash.variable} bg-cloud font-sans text-ink antialiased`}>
+      <body
+        className={`${satoshi.variable} ${clash.variable} bg-cloud font-sans text-ink antialiased`}
+      >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-xl focus:bg-white focus:p-4"
+        >
+          Skip to content
+        </a>
         <Providers>
           <div className="relative min-h-screen">
             <SiteHeader />
-            <main>{children}</main>
+            <main id="main-content">{children}</main>
             <SiteFooter />
           </div>
         </Providers>

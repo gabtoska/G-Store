@@ -4,34 +4,23 @@ import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 
-const categoryBlocks = [
-  {
-    name: "Outerwear",
-    copy: "Statement coats and structured silhouettes built for command.",
-    href: "/shop?category=Outerwear",
-    tone: "from-[#f6d9c0] to-[#f2bf99]"
-  },
-  {
-    name: "Tops",
-    copy: "Smart knits and luxury shirts for effortless power dressing.",
-    href: "/shop?category=Tops",
-    tone: "from-[#c5e5dc] to-[#9fcfbe]"
-  },
-  {
-    name: "Bottoms",
-    copy: "Precision tailoring from street taper to runway drape.",
-    href: "/shop?category=Bottoms",
-    tone: "from-[#dfd8f6] to-[#c5bce3]"
-  },
-  {
-    name: "Accessories",
-    copy: "Luxury details that complete every look with intent.",
-    href: "/shop?category=Accessories",
-    tone: "from-[#f4e3c9] to-[#e9c691]"
-  }
-];
-
-export function CategoryShowcase() {
+export function CategoryShowcase({
+  categories,
+}: {
+  categories: { id: string; name: string; description: string }[];
+}) {
+  const tones = [
+    "from-[#f6d9c0] to-[#f2bf99]",
+    "from-[#c5e5dc] to-[#9fcfbe]",
+    "from-[#dfd8f6] to-[#c5bce3]",
+    "from-[#f4e3c9] to-[#e9c691]",
+  ];
+  const categoryBlocks = categories.map((category, index) => ({
+    name: category.name,
+    copy: category.description,
+    href: `/shop?category=${encodeURIComponent(category.name)}`,
+    tone: tones[index % tones.length],
+  }));
   return (
     <section className="py-16 sm:py-20">
       <Container className="space-y-10">
@@ -49,8 +38,12 @@ export function CategoryShowcase() {
               style={{ animationDelay: `${index * 120}ms` }}
             >
               <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-white/30 blur-xl transition group-hover:scale-125" />
-              <p className="text-xs uppercase tracking-[0.16em] text-ink/55">Edit</p>
-              <h3 className="mt-2 font-display text-4xl text-ink">{block.name}</h3>
+              <p className="text-xs uppercase tracking-[0.16em] text-ink/55">
+                Edit
+              </p>
+              <h3 className="mt-2 font-display text-4xl text-ink">
+                {block.name}
+              </h3>
               <p className="mt-3 max-w-xs text-sm text-ink/70">{block.copy}</p>
               <span className="mt-7 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-ink/70">
                 Explore

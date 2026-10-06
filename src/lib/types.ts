@@ -1,18 +1,19 @@
-export type Category = "Outerwear" | "Tops" | "Bottoms" | "Accessories" | "Footwear";
-export type Collection = "Runway" | "Essentials" | "Street" | "Resort";
-
 export interface Product {
   id: string;
   slug: string;
   name: string;
   tagline: string;
   description: string;
-  category: Category;
-  collection: Collection;
+  category: string;
+  categoryId: string;
+  collection: string;
   priceCents: number;
   compareAtCents?: number;
-  rating: number;
-  reviewCount: number;
+  image: string;
+  isActive: boolean;
+  version: number;
+  createdAt: string;
+  updatedAt: string;
   isNew: boolean;
   isFeatured: boolean;
   stock: number;
@@ -32,6 +33,7 @@ export interface CartLine {
   color: string;
   size: string;
   quantity: number;
+  stock: number;
 }
 
 export interface CartState {

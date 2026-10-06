@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ProductImage } from "@/components/ui/product-image";
 
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -18,20 +18,26 @@ export function StorySection() {
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
               <article className="rounded-2xl border border-black/10 bg-cloud/80 p-4">
                 <p className="font-display text-3xl text-ink">01</p>
-                <p className="mt-2 text-xs uppercase tracking-[0.15em] text-ink/55">Material Curation</p>
+                <p className="mt-2 text-xs uppercase tracking-[0.15em] text-ink/55">
+                  Material Curation
+                </p>
               </article>
               <article className="rounded-2xl border border-black/10 bg-cloud/80 p-4">
                 <p className="font-display text-3xl text-ink">02</p>
-                <p className="mt-2 text-xs uppercase tracking-[0.15em] text-ink/55">Tailoring Lab</p>
+                <p className="mt-2 text-xs uppercase tracking-[0.15em] text-ink/55">
+                  Tailoring Lab
+                </p>
               </article>
               <article className="rounded-2xl border border-black/10 bg-cloud/80 p-4">
                 <p className="font-display text-3xl text-ink">03</p>
-                <p className="mt-2 text-xs uppercase tracking-[0.15em] text-ink/55">Final Inspection</p>
+                <p className="mt-2 text-xs uppercase tracking-[0.15em] text-ink/55">
+                  Final Inspection
+                </p>
               </article>
             </div>
           </div>
           <div className="relative h-[500px] overflow-hidden rounded-[34px] border border-black/10 bg-white/80 shadow-float">
-            <Image
+            <ProductImage
               src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=80"
               alt="G Store atelier style imagery"
               fill
