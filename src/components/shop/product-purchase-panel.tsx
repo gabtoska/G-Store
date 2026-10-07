@@ -134,7 +134,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
       <div className="rounded-2xl border border-dashed border-black/15 bg-cloud/70 p-4 text-sm text-ink/70">
         <p className="inline-flex items-center gap-2 font-semibold text-ink">
           <Sparkles className="h-4 w-4 text-accent" />
-          Your next signature piece
+          Cart and availability
         </p>
         <p className="mt-2">
           Choose your size and color. Your cart is saved on this device; current

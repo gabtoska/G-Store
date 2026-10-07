@@ -2,53 +2,97 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { SectionHeading } from "@/components/ui/section-heading";
+import { ProductImage } from "@/components/ui/product-image";
+import { Product } from "@/lib/types";
+
+const categoryProductSlugs: Record<string, string> = {
+  Accessories: "atlas-leather-weekender",
+  Bottoms: "district-tapered-trouser",
+  Footwear: "vanguard-tech-runner",
+  Outerwear: "soho-oversized-blazer",
+  Tops: "monaco-knit-polo",
+};
+
+const cardLayouts = [
+  "sm:col-span-2 lg:col-span-7 lg:h-[520px]",
+  "lg:col-span-5 lg:h-[520px]",
+  "lg:col-span-4",
+  "lg:col-span-4",
+  "lg:col-span-4",
+];
 
 export function CategoryShowcase({
   categories,
+  products,
 }: {
-  categories: { id: string; name: string; description: string }[];
+  categories: {
+    id: string;
+    name: string;
+    description: string;
+    productCount: number;
+  }[];
+  products: Product[];
 }) {
-  const tones = [
-    "from-[#f6d9c0] to-[#f2bf99]",
-    "from-[#c5e5dc] to-[#9fcfbe]",
-    "from-[#dfd8f6] to-[#c5bce3]",
-    "from-[#f4e3c9] to-[#e9c691]",
-  ];
-  const categoryBlocks = categories.map((category, index) => ({
-    name: category.name,
-    copy: category.description,
-    href: `/shop?category=${encodeURIComponent(category.name)}`,
-    tone: tones[index % tones.length],
+  const categoryCards = categories.map((category) => ({
+    ...category,
+    product:
+      products.find(
+        (product) => product.slug === categoryProductSlugs[category.name],
+      ) ?? products.find((product) => product.category === category.name),
   }));
+
   return (
-    <section className="py-16 sm:py-20">
-      <Container className="space-y-10">
-        <SectionHeading
-          eyebrow="By Category"
-          title="Build your signature wardrobe."
-          subtitle="Select a lane and discover premium pieces crafted to elevate your style identity."
-        />
-        <div className="grid gap-4 sm:grid-cols-2">
-          {categoryBlocks.map((block, index) => (
+    <section className="border-y border-black/10 bg-[#dfe8e1] py-14 sm:py-20">
+      <Container>
+        <div className="mb-8 flex items-end justify-between gap-6">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+              Shop by category
+            </p>
+            <h2 className="mt-3 font-display text-4xl text-ink sm:text-5xl">
+              Browse the wardrobe.
+            </h2>
+          </div>
+          <Link
+            href="/shop"
+            className="hidden items-center gap-2 border-b border-ink pb-1 text-xs font-semibold uppercase tracking-[0.14em] text-ink sm:inline-flex"
+          >
+            View all
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-12">
+          {categoryCards.map((category, index) => (
             <Link
-              key={block.name}
-              href={block.href}
-              className={`group relative overflow-hidden rounded-[30px] border border-black/10 bg-gradient-to-br ${block.tone} p-7 shadow-[0_15px_40px_rgba(0,0,0,0.08)] transition duration-300 hover:-translate-y-1`}
-              style={{ animationDelay: `${index * 120}ms` }}
+              key={category.id}
+              href={`/shop?category=${encodeURIComponent(category.name)}`}
+              className={`group relative h-[320px] overflow-hidden rounded-[26px] border border-black/10 bg-ink shadow-[0_18px_45px_rgba(21,21,21,0.12)] ${cardLayouts[index] ?? "lg:col-span-4"}`}
             >
-              <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-white/30 blur-xl transition group-hover:scale-125" />
-              <p className="text-xs uppercase tracking-[0.16em] text-ink/55">
-                Edit
-              </p>
-              <h3 className="mt-2 font-display text-4xl text-ink">
-                {block.name}
-              </h3>
-              <p className="mt-3 max-w-xs text-sm text-ink/70">{block.copy}</p>
-              <span className="mt-7 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-ink/70">
-                Explore
-                <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </span>
+              {category.product ? (
+                <ProductImage
+                  src={category.product.gallery[0]}
+                  alt={`${category.name} category`}
+                  fill
+                  className="object-cover transition duration-700 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
+                />
+              ) : null}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-black/10" />
+              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 text-cloud sm:p-7">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.17em] text-cloud/60">
+                    {category.productCount}{" "}
+                    {category.productCount === 1 ? "product" : "products"}
+                  </p>
+                  <h3 className="mt-1 font-display text-3xl sm:text-4xl">
+                    {category.name}
+                  </h3>
+                </div>
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-black/15 transition group-hover:bg-cloud group-hover:text-ink">
+                  <ArrowUpRight className="h-4 w-4" />
+                </span>
+              </div>
             </Link>
           ))}
         </div>

@@ -23,7 +23,7 @@ const clash = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: "G Store | Dress like a G",
   description:
-    "High-end fashion e-commerce experience with premium clothing, statement accessories, and runway-inspired essentials.",
+    "A full-stack fashion storefront demo with a database catalog, persistent cart, customer accounts, orders, and admin tools.",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000",
   ),

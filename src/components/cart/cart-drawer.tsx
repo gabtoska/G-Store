@@ -111,7 +111,7 @@ export function CartDrawer({ open, onClose }: CartDrawerProps) {
               Your cart is empty.
             </p>
             <p className="text-sm text-ink/65">
-              Curate your fit with premium pieces from the latest drop.
+              Browse the catalog and add a product to start a demo order.
             </p>
             <Link
               href="/shop"

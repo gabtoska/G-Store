@@ -2,38 +2,36 @@ import { Container } from "@/components/ui/container";
 
 const storeNotes = [
   {
-    quote: "Your next signature look starts with a thoughtful edit.",
-    title: "Curated collections",
-    detail: "Find your style",
+    title: "Cart persists",
+    detail: "Saved on this device",
   },
   {
-    quote: "Save your pieces today. Pick up where you left off.",
-    title: "Your personal edit",
-    detail: "A cart that remembers",
+    title: "Checkout rechecks",
+    detail: "Price, options, and stock",
   },
   {
-    quote: "Explore the full checkout experience with no real payment.",
-    title: "Portfolio demo",
-    detail: "Try the experience",
+    title: "Orders stay available",
+    detail: "Saved to your account",
   },
 ];
 
 export function StoreNotes() {
   return (
-    <section className="py-16 sm:py-20">
+    <section className="pb-6 sm:pb-10">
       <Container>
-        <div className="grid gap-4 lg:grid-cols-3">
-          {storeNotes.map((note) => (
+        <div className="grid border-y border-black/20 sm:grid-cols-3">
+          {storeNotes.map((note, index) => (
             <article
               key={note.title}
-              className="rounded-[28px] border border-black/10 bg-white/80 p-6 shadow-[0_12px_40px_rgba(0,0,0,0.06)]"
+              className="grid grid-cols-[2rem_1fr] gap-3 border-b border-black/15 py-5 last:border-b-0 sm:border-b-0 sm:border-r sm:px-5 sm:first:pl-0 sm:last:border-r-0 sm:last:pr-0"
             >
-              <p className="font-display text-2xl leading-snug text-ink">
-                {note.quote}
-              </p>
-              <p className="mt-6 text-xs uppercase tracking-[0.15em] text-ink/60">
-                {note.title} / {note.detail}
-              </p>
+              <span className="pt-0.5 text-[10px] tabular-nums text-ink/40">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <div>
+                <h2 className="text-sm font-semibold text-ink">{note.title}</h2>
+                <p className="mt-1 text-xs text-ink/50">{note.detail}</p>
+              </div>
             </article>
           ))}
         </div>

@@ -25,7 +25,7 @@ export function ProductCard({ product }: { product: Product }) {
   );
 
   return (
-    <article className="group overflow-hidden rounded-[28px] border border-black/10 bg-white/85 shadow-[0_10px_45px_rgba(10,10,10,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-float">
+    <article className="group flex h-full flex-col overflow-hidden rounded-[28px] border border-black/10 bg-white/85 shadow-[0_10px_45px_rgba(10,10,10,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-float">
       <Link
         href={`/shop/${product.slug}`}
         className="relative block h-72 overflow-hidden"
@@ -45,19 +45,21 @@ export function ProductCard({ product }: { product: Product }) {
           <Pill className="bg-white/90 text-ink">{product.collection}</Pill>
         </div>
       </Link>
-      <div className="space-y-4 p-5">
+      <div className="flex min-h-[278px] flex-1 flex-col p-5">
         <div className="flex items-start justify-between gap-4">
-          <div>
+          <div className="min-w-0 flex-1">
             <p className="text-[10px] uppercase tracking-[0.16em] text-ink/55">
               {product.category}
             </p>
             <Link
               href={`/shop/${product.slug}`}
-              className="mt-1 block font-display text-2xl leading-tight text-ink transition hover:text-accent"
+              className="mt-1 block min-h-[3.25rem] font-display text-xl leading-[1.3] text-ink transition hover:text-accent sm:text-[1.35rem]"
             >
               {product.name}
             </Link>
-            <p className="mt-2 text-sm text-ink/70">{product.tagline}</p>
+            <p className="mt-2 line-clamp-2 min-h-10 text-sm leading-5 text-ink/70">
+              {product.tagline}
+            </p>
           </div>
           <Link
             href={`/shop/${product.slug}`}
@@ -67,48 +69,53 @@ export function ProductCard({ product }: { product: Product }) {
             <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
-        <div className="flex items-center justify-between">
-          <div className="space-y-1">
-            <p className="text-lg font-bold text-ink">
-              {formatMoney(product.priceCents)}
-            </p>
-            {product.compareAtCents ? (
-              <p className="text-xs text-ink/45 line-through">
-                {formatMoney(product.compareAtCents)}
+        <div className="mt-auto pt-4">
+          <div className="flex min-h-[3rem] items-start justify-between">
+            <div>
+              <p className="text-lg font-bold text-ink">
+                {formatMoney(product.priceCents)}
               </p>
-            ) : null}
+              {product.compareAtCents ? (
+                <p className="mt-1 text-xs text-ink/45 line-through">
+                  {formatMoney(product.compareAtCents)}
+                </p>
+              ) : null}
+            </div>
+            <p className="pt-1 text-sm text-accent">
+              {product.stock > 0 ? `${product.stock} in stock` : "Sold out"}
+            </p>
           </div>
-          <p className="text-sm text-accent">
-            {product.stock > 0 ? `${product.stock} in stock` : "Sold out"}
+          <button
+            type="button"
+            className="mt-4 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-ink px-6 text-xs font-semibold uppercase tracking-[0.13em] text-cloud transition hover:-translate-y-0.5 hover:bg-black disabled:cursor-not-allowed disabled:opacity-50"
+            disabled={unavailable}
+            onClick={() =>
+              dispatch({
+                type: "add",
+                payload: {
+                  product,
+                  color: defaultOptions.color,
+                  size: defaultOptions.size,
+                },
+              })
+            }
+          >
+            <ShoppingBag className="h-4 w-4" />
+            {product.stock === 0
+              ? "Sold out"
+              : unavailable
+                ? "Cart limit reached"
+                : "Add To Cart"}
+          </button>
+          <p
+            aria-live="polite"
+            className="mt-3 min-h-4 text-center text-xs text-ink/60"
+          >
+            {inCart
+              ? `${inCart} in your cart`
+              : `Quick add: ${defaultOptions.color} / ${defaultOptions.size}`}
           </p>
         </div>
-        <button
-          type="button"
-          className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-ink px-6 text-sm font-semibold uppercase tracking-[0.12em] text-cloud transition hover:-translate-y-0.5 hover:bg-black disabled:cursor-not-allowed disabled:opacity-50"
-          disabled={unavailable}
-          onClick={() =>
-            dispatch({
-              type: "add",
-              payload: {
-                product,
-                color: defaultOptions.color,
-                size: defaultOptions.size,
-              },
-            })
-          }
-        >
-          <ShoppingBag className="h-4 w-4" />
-          {product.stock === 0
-            ? "Sold out"
-            : unavailable
-              ? "Cart limit reached"
-              : "Add To Cart"}
-        </button>
-        <p aria-live="polite" className="text-center text-xs text-ink/60">
-          {inCart
-            ? `${inCart} in your cart`
-            : `Quick add: ${defaultOptions.color} / ${defaultOptions.size}`}
-        </p>
       </div>
     </article>
   );

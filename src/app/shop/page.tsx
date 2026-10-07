@@ -26,9 +26,9 @@ export default async function ShopPage({
   return (
     <Container className="space-y-10 py-12 sm:py-16">
       <SectionHeading
-        eyebrow="Shop"
-        title="Curated luxury for bold everyday style."
-        subtitle="Explore premium silhouettes and signature essentials designed to elevate your wardrobe."
+        eyebrow="Demo catalog"
+        title="Browse the current product inventory."
+        subtitle="Search, filter, and sort products loaded from PostgreSQL. Images and products are sample catalog content."
       />
       {!parsed.success && (
         <p role="status">

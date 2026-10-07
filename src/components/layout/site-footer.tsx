@@ -2,16 +2,23 @@ import Link from "next/link";
 
 import { Container } from "@/components/ui/container";
 
-const footerLinks = [
+const shopLinks = [
   { href: "/shop", label: "Shop All" },
   { href: "/shop?collection=Runway", label: "Runway" },
   { href: "/shop?collection=Street", label: "Street" },
+  { href: "/shop?collection=Resort", label: "Resort" },
+];
+
+const accountLinks = [
+  { href: "/cart", label: "Cart" },
   { href: "/account", label: "Account & Orders" },
+  { href: "/login", label: "Sign In" },
+  { href: "/register", label: "Create Account" },
 ];
 
 export function SiteFooter() {
   return (
-    <footer className="relative mt-24 overflow-hidden border-t border-black/10 bg-ink text-cloud">
+    <footer className="relative mt-0 overflow-hidden border-t border-black/10 bg-ink text-cloud">
       <div className="pointer-events-none absolute inset-0 bg-mesh opacity-40" />
       <Container className="relative">
         <div className="grid gap-12 py-16 md:grid-cols-2">
@@ -20,22 +27,21 @@ export function SiteFooter() {
               G Store
             </p>
             <h2 className="font-display text-4xl leading-tight sm:text-5xl">
-              Dress like a G.
-              <br />
-              Own every room.
+              Build a look from
+              <br /> the current catalog.
             </h2>
             <p className="max-w-md text-sm leading-relaxed text-cloud/75">
-              G Store is a premium fashion commerce platform for bold
-              silhouettes, elevated textures, and unapologetic confidence.
+              Browse clothing, footwear, and accessories. Add the pieces you
+              want to your cart and complete a demo checkout.
             </p>
           </div>
           <div className="grid gap-8 sm:grid-cols-2">
             <div>
               <p className="text-xs uppercase tracking-[0.17em] text-cloud/60">
-                Navigate
+                Shop
               </p>
               <ul className="mt-4 space-y-3 text-sm">
-                {footerLinks.map((link) => (
+                {shopLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
@@ -49,18 +55,26 @@ export function SiteFooter() {
             </div>
             <div>
               <p className="text-xs uppercase tracking-[0.17em] text-cloud/60">
-                Portfolio project
+                Your account
               </p>
-              <ul className="mt-4 space-y-3 text-sm text-cloud/80">
-                <li>Demo storefront. No real purchases.</li>
-                <li>All prices shown in USD.</li>
-                <li>Built with Next.js and PostgreSQL.</li>
+              <ul className="mt-4 space-y-3 text-sm">
+                {accountLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="transition hover:text-brass"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         </div>
         <div className="border-t border-white/15 py-5 text-xs uppercase tracking-[0.15em] text-cloud/60">
-          {new Date().getFullYear()} G Store. Crafted for global style leaders.
+          {new Date().getFullYear()} G Store — portfolio demo. No real payments
+          or shipments.
         </div>
       </Container>
     </footer>

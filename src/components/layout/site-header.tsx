@@ -28,8 +28,7 @@ export function SiteHeader() {
   return (
     <>
       <div className="border-b border-black/10 bg-ink px-4 py-2 text-center text-[11px] uppercase tracking-[0.14em] text-cloud">
-        Portfolio demo · No real payments or shipments · Free demo shipping over
-        $250
+        Portfolio demo · No real payments or shipments
       </div>
       <header className="sticky top-0 z-30 border-b border-black/10 bg-cloud/85 backdrop-blur-xl">
         <Container>

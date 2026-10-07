@@ -35,20 +35,20 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
         <section className="grid gap-8 rounded-[34px] border border-black/10 bg-white/80 p-7 sm:p-9 lg:grid-cols-2">
           <div className="space-y-4">
-            <h2 className="font-display text-3xl text-ink">Material Notes</h2>
+            <h2 className="font-display text-3xl text-ink">Catalog details</h2>
             <div className="flex flex-wrap gap-2">
               {product.materials.map((material) => (
                 <Pill key={material}>{material}</Pill>
               ))}
             </div>
             <p className="text-sm leading-relaxed text-ink/70">
-              Every piece is finished in limited runs with strict quality
-              controls to preserve shape, texture, and wearability.
+              Materials, colors, sizes, pricing, and stock are sample catalog
+              data for this portfolio application.
             </p>
           </div>
           <div className="space-y-4">
             <h2 className="font-display text-3xl text-ink">
-              Delivery & Returns
+              Demo order terms
             </h2>
             <ul className="space-y-2 text-sm leading-relaxed text-ink/70">
               <li>US addresses supported in this portfolio demo.</li>
@@ -60,7 +60,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </section>
 
         <section className="space-y-7">
-          <h2 className="font-display text-4xl text-ink">You may also like</h2>
+          <h2 className="font-display text-4xl text-ink">Related products</h2>
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {related.map((item) => (
               <ProductCard key={item.id} product={item} />

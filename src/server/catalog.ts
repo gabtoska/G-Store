@@ -76,7 +76,14 @@ export async function getRelatedProducts(product: Product, take = 3) {
 }
 export async function getCatalogFilters() {
   const [categories, collections] = await Promise.all([
-    db.category.findMany({ orderBy: { name: "asc" } }),
+    db.category.findMany({
+      orderBy: { name: "asc" },
+      include: {
+        _count: {
+          select: { products: { where: { isActive: true } } },
+        },
+      },
+    }),
     db.product.findMany({
       where: { isActive: true },
       distinct: ["collection"],
@@ -85,7 +92,10 @@ export async function getCatalogFilters() {
     }),
   ]);
   return {
-    categories,
+    categories: categories.map(({ _count, ...category }) => ({
+      ...category,
+      productCount: _count.products,
+    })),
     collections: collections.map((item) => item.collection),
   };
 }
